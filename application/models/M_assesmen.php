@@ -160,7 +160,41 @@ class M_assesmen extends CI_Model
         return $this->db->query("SELECT * FROM aktivitas");
     }
 
+    public function tampildt()
+    {
+        return $this->db->query("SELECT * FROM penilaian_dt LEFT JOIN user ON
+                                penilaian_dt.id_user = user.id_user LEFT JOIN 
+                                program ON penilaian_dt.id_program = program.id_program LEFT JOIN
+                                aktivitas ON penilaian_dt.id_aktivitas = aktivitas.id_aktivitas");
+    }
 
+    public function tampil_user()
+    {
+        return $this->db->query("SELECT * FROM user WHERE role ='2'");
+    }
+
+    public function tampil_program_input()
+    {
+        return $this->db->query("SELECT * FROM program");
+    }
+
+    public function tampil_aktivitas_input()
+    {
+        return $this->db->query("SELECT * FROM aktivitas LEFT JOIN program ON aktivitas.id_program = program.id_program");
+    }
+
+    public function insert_dt($data)
+    {
+        $this->db->insert('penilaian_dt', $data);
+    }
+
+
+    function hapus_dt($table, $where)
+    {
+        $insert = $this->db->delete($table, $where);
+        return $insert;
+    }
+    
 
     // ASSESMEN PROJEK
 

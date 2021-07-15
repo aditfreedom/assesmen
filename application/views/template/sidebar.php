@@ -86,7 +86,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=base_url('user/registrasi_ulang/');?>" class="nav-link">
+                <a href="<?=base_url('home/penilaian_dt/');?>" class="nav-link">
                   <i class="far fa fa-clipboard-check nav-icon"></i>
                   <p>Penilaian DT</p>
                 </a>
@@ -109,6 +109,12 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="<?=base_url('user/registrasi_ulang/');?>" class="nav-link">
+                  <i class="far fa fa-table nav-icon"></i>
+                  <p>Hitung Progres Bulanan</p>
+                </a>
+              </li>
               <li class="nav-item">
                 <a href="<?=base_url('user/registrasi_ulang/');?>" class="nav-link">
                   <i class="far fa fa-table nav-icon"></i>
