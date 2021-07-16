@@ -28,12 +28,12 @@
             <?php echo form_open('adminuser/login_aksi');?>
               <div class="form-label-group">
                 <input  name="username" id="inputEmail" class="form-control"  required autofocus>
-                <label for="inputEmail">NIP</label>
+                <label for="inputEmail">USERNAME</label>
               </div>
 
               <div class="form-label-group">
                 <input name="password" type="date" id="inputPassword" class="form-control" required>
-                <label for="inputPassword">TANGGAL LAHIR</label>
+                <label for="inputPassword">PASSWORD</label>
               </div>
               <!-- <div class="form-label-group">
               <input type="checkbox" onclick="myFunction()" id="show"> Tampil Password

@@ -450,6 +450,84 @@ class Home extends CI_Controller
 		$this->M_assesmen->hapus_dt('penilaian_dt', $where);
 		redirect(base_url('home/penilaian_dt'));
 	}
+
+	public function edit_dt($id)
+	{
+		$sess_data = $this->session->userdata();
+		$data['edit_dt'] = $this->M_assesmen->tampilpenilaiandt_byid($id)->result();
+		$data['tampil_user'] = $this->M_assesmen->tampil_user()->result();
+		$data['tampil_program'] = $this->M_assesmen->tampil_program_input()->result();
+		$data['tampil_aktivitas'] = $this->M_assesmen->tampil_aktivitas_input()->result();
+
+		// $data['program'] = $this->M_assesmen->tampilprogram()->result();
+		// $data['program2'] = $this->M_assesmen->tampilprogram_byid($id)->result();
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('edit_dt', $data);
+		$this->load->view('template/footer');
+	}
+
+
+	public function update_dt()
+	{
+		$id_user    		= $this->input->post('id_user');
+		$id_program    		= $this->input->post('id_program');
+		$id_aktivitas       = $this->input->post('id_aktivitas');
+		$bulan         		= $this->input->post('bulan');
+		$tahun       		= $this->input->post('tahun');
+		$tanggal       		= $this->input->post('tanggal');
+		$hari 			    = $this->input->post('hari');
+		$jam			    = $this->input->post('jam');
+		$op1	       		= $this->input->post('op1');
+		$op2 		      	= $this->input->post('op2');
+		$op3	       		= $this->input->post('op3');
+		$op4	       		= $this->input->post('op4');
+		$op5	       		= $this->input->post('op5');
+		$op6	       		= $this->input->post('op6');
+		$op7	       		= $this->input->post('op7');
+		$op8	       		= $this->input->post('op8');
+		$op9	       		= $this->input->post('op9');
+		$op10	       		= $this->input->post('op10');
+		$sesi	       		= $this->input->post('sesi');
+		$op_total	       	= $this->input->post('op_total');
+
+
+		$rp = $op1+$op2+$op3+$op4+$op5+$op6+$op7+$op8+$op9+$op10;
+		$perhitungan = ($rp/$op_total)*100;
+
+		$data = array(
+			'id_user' => $id_user,
+			'id_program' => $id_program,
+			'id_aktivitas' => $id_aktivitas,
+			'bulan' => $bulan,
+			'tahun' => $tahun,
+			'tanggal' => $tanggal,
+			'hari' => $hari,
+			'jam' => $jam,
+			'op1' => $op1,
+			'op2' => $op2,
+			'op3' => $op3,
+			'op4' => $op4,
+			'op5' => $op5,
+			'op6' => $op6,
+			'op7' => $op7,
+			'op8' => $op8,
+			'op9' => $op9,
+			'op10' => $op10,
+			'op_total' => $op_total,
+			'rp' => $rp,
+			'perhitungan' => $perhitungan,
+			'sesi' => $sesi
+
+		);
+
+		$where = array(
+			'id' => $this->input->post('id'),
+		);
+
+		$this->M_assesmen->update_dt($where, $data, 'penilaian_dt');
+		$this->load->view('berhasil_update_dt');
+	}
 		//  PROJEK ASSESMEN
 
 

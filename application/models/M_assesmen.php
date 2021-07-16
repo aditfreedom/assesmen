@@ -194,7 +194,23 @@ class M_assesmen extends CI_Model
         $insert = $this->db->delete($table, $where);
         return $insert;
     }
-    
+
+
+    public function tampilpenilaiandt_byid($id)
+    {
+        return $this->db->query("SELECT * FROM penilaian_dt 
+                                LEFT JOIN user ON penilaian_dt.id_user = user.id_user 
+                                LEFT JOIN program ON penilaian_dt.id_program = program.id_program 
+                                LEFT JOIN aktivitas ON penilaian_dt.id_aktivitas = aktivitas.id_aktivitas 
+                                WHERE id='$id'");
+    }
+
+    public function update_dt($where, $data,$table)
+    {
+        $this->db->where($where);
+        $this->db->set($data);
+        $this->db->update($table);
+    }
 
     // ASSESMEN PROJEK
 
