@@ -165,7 +165,7 @@ class M_assesmen extends CI_Model
         return $this->db->query("SELECT * FROM penilaian_dt LEFT JOIN user ON
                                 penilaian_dt.id_user = user.id_user LEFT JOIN 
                                 program ON penilaian_dt.id_program = program.id_program LEFT JOIN
-                                aktivitas ON penilaian_dt.id_aktivitas = aktivitas.id_aktivitas");
+                                aktivitas ON penilaian_dt.id_aktivitas = aktivitas.id_aktivitas ORDER BY id DESC");
     }
 
     public function tampil_user()
@@ -212,7 +212,131 @@ class M_assesmen extends CI_Model
         $this->db->update($table);
     }
 
+
+
+    public function tampildtt()
+    {
+        return $this->db->query("SELECT * FROM penilaian_dtt LEFT JOIN user ON
+                                penilaian_dtt.id_user = user.id_user LEFT JOIN 
+                                program ON penilaian_dtt.id_program = program.id_program LEFT JOIN
+                                aktivitas ON penilaian_dtt.id_aktivitas = aktivitas.id_aktivitas ORDER BY id DESC");
+    }
+
+    public function insert_dtt($data)
+    {
+        $this->db->insert('penilaian_dtt', $data);
+    }
+
+    function hapus_dtt($table, $where)
+    {
+        $insert = $this->db->delete($table, $where);
+        return $insert;
+    }
+
+    public function tampilpenilaiandtt_byid($id)
+    {
+        return $this->db->query("SELECT * FROM penilaian_dtt
+                                LEFT JOIN user ON penilaian_dtt.id_user = user.id_user 
+                                LEFT JOIN program ON penilaian_dtt.id_program = program.id_program 
+                                LEFT JOIN aktivitas ON penilaian_dtt.id_aktivitas = aktivitas.id_aktivitas 
+                                WHERE id='$id'");
+    }
+
+    public function update_dtt($where, $data,$table)
+    {
+        $this->db->where($where);
+        $this->db->set($data);
+        $this->db->update($table);
+    }
+
+
+    public function tampil_rata()
+    {
+        return $this->db->query("SELECT * FROM penilaian_dt ORDER BY id DESC");
+    }
+
+    public function tampil_data_dt($bulan,$tahun,$id_user)
+    {
+        return $this->db->query("SELECT * FROM penilaian_dt 
+                                LEFT JOIN user ON penilaian_dt.id_user = user.id_user
+                                WHERE user.id_user='$id_user' AND bulan='$bulan' AND tahun='$tahun' ORDER BY id DESC");
+    }
+
+    public function tampil_user_siswa()
+    {
+        return $this->db->query("SELECT * FROM user WHERE role ='2'");
+    }
+
+    public function tampil_rata_penilaian()
+    {
+        return $this->db->query("SELECT rata,kategori FROM perhitungan_dt ");
+    }
+
+    public function cek_dt($id_user,$bulan,$tahun)
+    {
+        return $this->db->query("SELECT * FROM perhitungan_dt WHERE id_user='$id_user'
+                                AND bulan='$bulan' AND tahun='$tahun'");
+    }
+
+
+    public function insert_perhitungan_dt($data)
+    {
+        $this->db->insert('perhitungan_dt', $data);
+    }
+
+    public function update_perhitungan_dt($where, $data,$table)
+    {
+        $this->db->where($where);
+        $this->db->set($data);
+        $this->db->update($table);
+    }
+
+    public function tampil_data_dtt($bulan,$tahun,$id_user)
+    {
+        return $this->db->query("SELECT * FROM penilaian_dtt 
+                                LEFT JOIN user ON penilaian_dtt.id_user = user.id_user
+                                WHERE user.id_user='$id_user' AND bulan='$bulan' AND tahun='$tahun' ORDER BY id DESC");
+    }
+
+    public function tampil_rata_penilaian_dt()
+    {
+        return $this->db->query("SELECT rata,kategori FROM perhitungan_dtt ");
+    }
+
+    public function cek_dtt($id_user,$bulan,$tahun)
+    {
+        return $this->db->query("SELECT * FROM perhitungan_dtt WHERE id_user='$id_user'
+                                AND bulan='$bulan' AND tahun='$tahun'");
+    }
+
+    public function insert_perhitungan_dtt($data)
+    {
+        $this->db->insert('perhitungan_dtt', $data);
+    }
+
+    public function update_perhitungan_dtt($where, $data,$table)
+    {
+        $this->db->where($where);
+        $this->db->set($data);
+        $this->db->update($table);
+    }
+
+    // public function ambil_persen_dt($bulan,$tahun)
+    // {
+    //     return $this->db->query("SELECT perhitungan FROM penilaian_dt WHERE bulan='$bulan' AND tahun='$tahun' ORDER BY id DESC");
+    // }
+
+
+
+
     // ASSESMEN PROJEK
+
+
+
+
+
+
+
 
 
 

@@ -26,7 +26,7 @@
 
                     <div class="form-group">
                     <label for="">Nama Siswa</label>
-                    <select class="form-control selectpicker" data-size="5" name="id_user" id="id_user" data-style="btn-secondary" data-live-search="true">
+                    <select class="form-control selectpicker" data-size="5" name="id_user" id="id_user" data-style="btn-primary" data-live-search="true">
                     <?php foreach ($tampil_user as $data) : ?>
                     <option value="<?=$data->id_user;?>"><?=$data->nama;?></option>
                     <?php endforeach; ?>
@@ -35,7 +35,7 @@
 
                     <div class="form-group">
                     <label for="">Nama Program</label>
-                    <select class="form-control selectpicker" data-size="5" name="id_program" id="id_program" data-style="btn-secondary" data-live-search="true">
+                    <select class="form-control selectpicker" data-size="5" name="id_program" id="id_program" data-style="btn-primary" data-live-search="true">
                     <?php foreach ($tampil_program as $data) : ?>
                     <option value="<?=$data->id_program;?>"><b>(<?=$data->kode_program;?>) </b><?=$data->nama_program;?></option>
                     <?php endforeach; ?>
@@ -50,7 +50,7 @@
 
                             <div class="form-group">
                             <label for="">Bulan</label>
-                            <select class="form-control selectpicker" data-size="5" name="bulan" id="bulan" data-style="btn-secondary" data-live-search="true">
+                            <select class="form-control selectpicker" data-size="5" name="bulan" id="bulan" data-style="btn-primary" data-live-search="true">
                             <option value="Januari">Januari</option>
                             <option value="Februari">Februari</option>
                             <option value="Maret">Maret</option>
@@ -70,7 +70,7 @@
                         <div class="col">
                             <div class="form-group">
                             <label for="">Tahun</label>
-                            <select class="form-control selectpicker" data-size="5" name="tahun" id="tahun" data-style="btn-secondary" data-live-search="true">
+                            <select class="form-control selectpicker" data-size="5" name="tahun" id="tahun" data-style="btn-primary" data-live-search="true">
                             <option value="2020">2020</option>
                             <option value="2021">2021</option>
                             <option value="2022">2022</option>
@@ -83,7 +83,7 @@
 
                             <div class="form-group">
                             <label for="">Nama Aktivitas</label>
-                            <select class="form-control selectpicker" data-size="5" name="id_aktivitas" id="id_aktivitas" data-style="btn-secondary" data-live-search="true">
+                            <select class="form-control selectpicker" data-size="5" name="id_aktivitas" id="id_aktivitas" data-style="btn-primary" data-live-search="true">
                             <?php foreach ($tampil_aktivitas as $data) : ?>
                             <option value="<?=$data->id_aktivitas;?>"><b><?=$data->aktivitas;?> (Kode : <?=$data->kode_program;?>) </b></option>
                             <?php endforeach; ?>
@@ -107,7 +107,7 @@
                     <div class="col">
                         <div class="form-group">
                         <label for="">Hari</label>
-                        <select class="form-control selectpicker" data-size="3" name="hari" id="hari" data-style="btn-secondary" data-live-search="true">
+                        <select class="form-control selectpicker" data-size="3" name="hari" id="hari" data-style="btn-primary" data-live-search="true">
                         <option value="Senin">Senin</option>
                         <option value="Selasa">Selasa</option>
                         <option value="Rabu">Rabu</option>
@@ -148,7 +148,7 @@
                 <div class="col">
                             <div class="form-group">
                             <label for="">OP 1</label>
-                            <select class="form-control selectpicker" data-size="3" name="op1" id="op1" data-style="btn-secondary" data-live-search="true">
+                            <select class="form-control selectpicker" data-size="3" name="op1" id="op1" data-style="btn-success" data-live-search="true">
                             <option value="0">--Belum Diisi--</option>
                             <option value="1">(+) Benar</option>
                             <option value="0">(x) Salah</option>
@@ -163,7 +163,7 @@
                 <div class="col">
                             <div class="form-group">
                             <label for="">OP 2</label>
-                            <select class="form-control selectpicker" data-size="3" name="op2" id="op2" data-style="btn-secondary" data-live-search="true">
+                            <select class="form-control selectpicker" data-size="3" name="op2" id="op2" data-style="btn-success" data-live-search="true">
                             <option value="0">--Belum Diisi--</option>
                             <option value="1">(+) Benar</option>
                             <option value="0">(x) Salah</option>
@@ -178,7 +178,7 @@
                 <div class="col">
                             <div class="form-group">
                             <label for="">OP 3</label>
-                            <select class="form-control selectpicker" data-size="3" name="op3" id="op3" data-style="btn-secondary" data-live-search="true">
+                            <select class="form-control selectpicker" data-size="3" name="op3" id="op3" data-style="btn-success" data-live-search="true">
                             <option value="0">--Belum Diisi--</option>
                             <option value="1">(+) Benar</option>
                             <option value="0">(x) Salah</option>
@@ -193,7 +193,7 @@
                 <div class="col">
                             <div class="form-group">
                             <label for="">OP 4</label>
-                            <select class="form-control selectpicker" data-size="3" name="op4" id="op4" data-style="btn-secondary" data-live-search="true">
+                            <select class="form-control selectpicker" data-size="3" name="op4" id="op4" data-style="btn-success" data-live-search="true">
                             <option value="0">--Belum Diisi--</option>
                             <option value="1">(+) Benar</option>
                             <option value="0">(x) Salah</option>
@@ -208,7 +208,7 @@
                 <div class="col">
                             <div class="form-group">
                             <label for="">OP 5</label>
-                            <select class="form-control selectpicker" data-size="3" name="op5" id="op5" data-style="btn-secondary" data-live-search="true">
+                            <select class="form-control selectpicker" data-size="3" name="op5" id="op5" data-style="btn-success" data-live-search="true">
                             <option value="0">--Belum Diisi--</option>
                             <option value="1">(+) Benar</option>
                             <option value="0">(x) Salah</option>
@@ -228,7 +228,7 @@
                 <div class="col">
                             <div class="form-group">
                             <label for="">OP 6</label>
-                            <select class="form-control selectpicker" data-size="3" name="op6" id="op6" data-style="btn-secondary" data-live-search="true">
+                            <select class="form-control selectpicker" data-size="3" name="op6" id="op6" data-style="btn-danger" data-live-search="true">
                             <option value="0">--Belum Diisi--</option>
                             <option value="1">(+) Benar</option>
                             <option value="0">(x) Salah</option>
@@ -243,7 +243,7 @@
                 <div class="col">
                             <div class="form-group">
                             <label for="">OP 7</label>
-                            <select class="form-control selectpicker" data-size="3" name="op7" id="op7" data-style="btn-secondary" data-live-search="true">
+                            <select class="form-control selectpicker" data-size="3" name="op7" id="op7" data-style="btn-danger" data-live-search="true">
                             <option value="0">--Belum Diisi--</option>
                             <option value="1">(+) Benar</option>
                             <option value="0">(x) Salah</option>
@@ -258,7 +258,7 @@
                 <div class="col">
                             <div class="form-group">
                             <label for="">OP 8</label>
-                            <select class="form-control selectpicker" data-size="3" name="op8" id="op8" data-style="btn-secondary" data-live-search="true">
+                            <select class="form-control selectpicker" data-size="3" name="op8" id="op8" data-style="btn-danger" data-live-search="true">
                             <option value="0">--Belum Diisi--</option>
                             <option value="1">(+) Benar</option>
                             <option value="0">(x) Salah</option>
@@ -273,7 +273,7 @@
                 <div class="col">
                             <div class="form-group">
                             <label for="">OP 9</label>
-                            <select class="form-control selectpicker" data-size="3" name="op9" id="op9" data-style="btn-secondary" data-live-search="true">
+                            <select class="form-control selectpicker" data-size="3" name="op9" id="op9" data-style="btn-danger" data-live-search="true">
                             <option value="0">--Belum Diisi--</option>
                             <option value="1">(+) Benar</option>
                             <option value="0">(x) Salah</option>
@@ -288,7 +288,7 @@
                 <div class="col">
                             <div class="form-group">
                             <label for="">OP 10</label>
-                            <select class="form-control selectpicker" data-size="3" name="op10" id="op10" data-style="btn-secondary" data-live-search="true">
+                            <select class="form-control selectpicker" data-size="3" name="op10" id="op10" data-style="btn-danger" data-live-search="true">
                             <option value="0">--Belum Diisi--</option>
                             <option value="1">(+) Benar</option>
                             <option value="0">(x) Salah</option>

@@ -92,7 +92,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=base_url('user/cetakdaftarulang/');?>" class="nav-link">
+                <a href="<?=base_url('home/penilaian_dtt/');?>" class="nav-link">
                   <i class="far fa fa-clipboard-check nav-icon"></i>
                   <p>Penilaian DTT</p>
                 </a>
@@ -102,29 +102,50 @@
 
               <li class="nav-item has-treeview menu-close">
             <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-briefcase"></i>
+              <p>
+                Perhitungan Rata & KNN
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            
+            <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="<?=base_url('home/hitung_dt/');?>" class="nav-link">
+                  <i class="far fa fa-copy nav-icon"></i>
+                  <p>Perhitungan DT</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?=base_url('home/hitung_dtt/');?>" class="nav-link">
+                  <i class="far fa fa-copy nav-icon"></i>
+                  <p>Perhitungan DTT</p>
+                </a>
+              </li>
+              
+              </ul>
+              </li>     
+
+              <li class="nav-item has-treeview menu-close">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-user-check"></i>
               <p>
                 Hasil Penilaian
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
+            
             <ul class="nav nav-treeview">
             <li class="nav-item">
                 <a href="<?=base_url('user/registrasi_ulang/');?>" class="nav-link">
                   <i class="far fa fa-table nav-icon"></i>
-                  <p>Hitung Progres Bulanan</p>
+                  <p>Rekap Penilaian</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="<?=base_url('user/registrasi_ulang/');?>" class="nav-link">
-                  <i class="far fa fa-table nav-icon"></i>
-                  <p>Hasil Monitoring</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?=base_url('user/cetakdaftarulang/');?>" class="nav-link">
                   <i class="far fa fa-chart-bar nav-icon"></i>
-                  <p>Grafik Monitoring</p>
+                  <p>Grafik</p>
                 </a>
               </li>
               </ul>

@@ -4,12 +4,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">EDIT PENILAIAN DT</h1>
+                    <h1 class="m-0 text-dark">EDIT PENILAIAN DTT</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Monitoring</a></li>
-                        <li class="breadcrumb-item active">Penilaian DT</li>
+                        <li class="breadcrumb-item active">Penilaian DTT</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -19,7 +19,7 @@
     <div class="content">
        
     <div class="container">
-        <form method="post" action="<?php echo base_url('home/update_dt'); ?>">
+        <form method="post" action="<?php echo base_url('home/update_dtt'); ?>">
 
             <div class="row">
                 <div class="col">
@@ -27,7 +27,7 @@
                     <div class="form-group">
                     <label for="">Nama Siswa</label>
                     <select class="form-control selectpicker" data-size="5" name="id_user" id="id_user" data-style="btn-secondary" data-live-search="true">
-                    <?php foreach ($edit_dt as $data) : ?>
+                    <?php foreach ($edit_dtt as $data) : ?>
                     <option selected value="<?=$data->id_user;?>"><?=$data->nama;?></option>
                     <?php endforeach; ?>
                     <?php foreach ($tampil_user as $data) : ?>
@@ -39,7 +39,7 @@
                     <div class="form-group">
                     <label for="">Nama Program</label>
                     <select class="form-control selectpicker" data-size="5" name="id_program" id="id_program" data-style="btn-secondary" data-live-search="true">
-                    <?php foreach ($edit_dt as $data) : ?>
+                    <?php foreach ($edit_dtt as $data) : ?>
                     <option selected value="<?=$data->id_program;?>"><b>(<?=$data->kode_program;?>) </b><?=$data->nama_program;?></option>
                     <?php endforeach; ?>
                     <?php foreach ($tampil_program as $data) : ?>
@@ -57,7 +57,7 @@
                             <div class="form-group">
                             <label for="">Bulan</label>
                             <select class="form-control selectpicker" data-size="5" name="bulan" id="bulan" data-style="btn-secondary" data-live-search="true">
-                            <?php foreach ($edit_dt as $data) : ?>
+                            <?php foreach ($edit_dtt as $data) : ?>
                             <option selected value="<?=$data->bulan;?>"><?=$data->bulan;?></option>
                             <?php endforeach; ?>
                             <option value="Januari">Januari</option>
@@ -80,7 +80,7 @@
                             <div class="form-group">
                             <label for="">Tahun</label>
                             <select class="form-control selectpicker" data-size="5" name="tahun" id="tahun" data-style="btn-secondary" data-live-search="true">
-                            <?php foreach ($edit_dt as $data) : ?>
+                            <?php foreach ($edit_dtt as $data) : ?>
                             <option selected value="<?=$data->tahun;?>"><?=$data->tahun;?></option>
                             <?php endforeach; ?>
                             <option value="2020">2020</option>
@@ -96,7 +96,7 @@
                             <div class="form-group">
                             <label for="">Nama Aktivitas</label>
                             <select class="form-control selectpicker" data-size="5" name="id_aktivitas" id="id_aktivitas" data-style="btn-secondary" data-live-search="true">
-                            <?php foreach ($edit_dt as $data) : ?>
+                            <?php foreach ($edit_dtt as $data) : ?>
                             <option selected value="<?=$data->id_aktivitas;?>"><b><?=$data->aktivitas;?> (Kode : <?=$data->kode_program;?>) </b></option>
                             <?php endforeach; ?>
                             <?php foreach ($tampil_aktivitas as $data) : ?>
@@ -115,7 +115,7 @@
                     <div class="col">
                         <div class="form-group">
                         <label for="">Tanggal</label>
-                        <?php foreach ($edit_dt as $data) : ?>
+                        <?php foreach ($edit_dtt as $data) : ?>
                             <input type="date" name="tanggal" value="<?=$data->tanggal;?>" class="form-control" required>                            
                             <?php endforeach; ?>
                         </div>               
@@ -125,7 +125,7 @@
                         <div class="form-group">
                         <label for="">Hari</label>
                         <select class="form-control selectpicker" data-size="3" name="hari" id="hari" data-style="btn-secondary" data-live-search="true">
-                        <?php foreach ($edit_dt as $data) : ?>
+                        <?php foreach ($edit_dtt as $data) : ?>
                         <option value="<?=$data->hari;?>"><b><?=$data->hari;?></b></option>
                         <?php endforeach; ?>
                         <option value="Senin">Senin</option>
@@ -142,7 +142,7 @@
                     <div class="col">
                         <div class="form-group">
                         <label for="">Jam</label>
-                        <?php foreach ($edit_dt as $data) : ?>
+                        <?php foreach ($edit_dtt as $data) : ?>
                         <input type="time" name="jam" value="<?=$data->jam;?>" class="form-control" required> 
                         <?php endforeach; ?>
                         </div>
@@ -151,7 +151,7 @@
                     <div class="col">
                         <div class="form-group">
                         <label for="">Sesi</label>
-                        <?php foreach ($edit_dt as $data) : ?>
+                        <?php foreach ($edit_dtt as $data) : ?>
                         <input type="number" name="sesi" class="form-control" value="<?=$data->sesi;?>" required>
                         <?php endforeach; ?>
                         </div>
@@ -159,13 +159,14 @@
 
                     <div class="col">
                         <div class="form-group">
-                        <?php foreach ($edit_dt as $data) : ?>
+                        <?php foreach ($edit_dtt as $data) : ?>
                         <label for="">Opportunity</label>
                         <input type="number" name="op_total" class="form-control" value="<?=$data->op_total;?>" required>
                         <?php endforeach; ?>
                         </div>
                     </div>  
                 </div>
+
                             
 
                 <div class="row">
@@ -174,7 +175,7 @@
                             <div class="form-group">
                             <label for="">OP 1</label>
                             <select class="form-control selectpicker" data-size="3" name="op1" id="op1" data-style="btn-secondary" data-live-search="true">
-                            <?php foreach ($edit_dt as $data) : ?>
+                            <?php foreach ($edit_dtt as $data) : ?>
                             <option value="<?=$data->op1;?>"><b><?=$data->op1;?></b></option>
                             <?php endforeach; ?>
                             <option value="0">--Belum Diisi--</option>
@@ -192,7 +193,7 @@
                             <div class="form-group">
                             <label for="">OP 2</label>
                             <select class="form-control selectpicker" data-size="3" name="op2" id="op2" data-style="btn-secondary" data-live-search="true">
-                            <?php foreach ($edit_dt as $data) : ?>
+                            <?php foreach ($edit_dtt as $data) : ?>
                             <option value="<?=$data->op2;?>"><b><?=$data->op2;?></b></option>
                             <?php endforeach; ?>
                             <option value="0">--Belum Diisi--</option>
@@ -210,7 +211,7 @@
                             <div class="form-group">
                             <label for="">OP 3</label>
                             <select class="form-control selectpicker" data-size="3" name="op3" id="op3" data-style="btn-secondary" data-live-search="true">
-                            <?php foreach ($edit_dt as $data) : ?>
+                            <?php foreach ($edit_dtt as $data) : ?>
                             <option value="<?=$data->op3;?>"><b><?=$data->op3;?></b></option>
                             <?php endforeach; ?>
                             <option value="0">--Belum Diisi--</option>
@@ -228,7 +229,7 @@
                             <div class="form-group">
                             <label for="">OP 4</label>
                             <select class="form-control selectpicker" data-size="3" name="op4" id="op4" data-style="btn-secondary" data-live-search="true">
-                            <?php foreach ($edit_dt as $data) : ?>
+                            <?php foreach ($edit_dtt as $data) : ?>
                             <option value="<?=$data->op4;?>"><b><?=$data->op4;?></b></option>
                             <?php endforeach; ?>
                             <option value="0">--Belum Diisi--</option>
@@ -246,7 +247,7 @@
                             <div class="form-group">
                             <label for="">OP 5</label>
                             <select class="form-control selectpicker" data-size="3" name="op5" id="op5" data-style="btn-secondary" data-live-search="true">
-                            <?php foreach ($edit_dt as $data) : ?>
+                            <?php foreach ($edit_dtt as $data) : ?>
                             <option value="<?=$data->op5;?>"><b><?=$data->op5;?></b></option>
                             <?php endforeach; ?>
                             <option value="0">--Belum Diisi--</option>
@@ -269,7 +270,7 @@
                             <div class="form-group">
                             <label for="">OP 6</label>
                             <select class="form-control selectpicker" data-size="3" name="op6" id="op6" data-style="btn-secondary" data-live-search="true">
-                            <?php foreach ($edit_dt as $data) : ?>
+                            <?php foreach ($edit_dtt as $data) : ?>
                             <option value="<?=$data->op6;?>"><b><?=$data->op6;?></b></option>
                             <?php endforeach; ?>
                             <option value="0">--Belum Diisi--</option>
@@ -287,7 +288,7 @@
                             <div class="form-group">
                             <label for="">OP 7</label>
                             <select class="form-control selectpicker" data-size="3" name="op7" id="op7" data-style="btn-secondary" data-live-search="true">
-                            <?php foreach ($edit_dt as $data) : ?>
+                            <?php foreach ($edit_dtt as $data) : ?>
                             <option value="<?=$data->op7;?>"><b><?=$data->op7;?></b></option>
                             <?php endforeach; ?>
                             <option value="0">--Belum Diisi--</option>
@@ -305,7 +306,7 @@
                             <div class="form-group">
                             <label for="">OP 8</label>
                             <select class="form-control selectpicker" data-size="3" name="op8" id="op8" data-style="btn-secondary" data-live-search="true">
-                            <?php foreach ($edit_dt as $data) : ?>
+                            <?php foreach ($edit_dtt as $data) : ?>
                             <option value="<?=$data->op8;?>"><b><?=$data->op8;?></b></option>
                             <?php endforeach; ?>
                             <option value="0">--Belum Diisi--</option>
@@ -323,7 +324,7 @@
                             <div class="form-group">
                             <label for="">OP 9</label>
                             <select class="form-control selectpicker" data-size="3" name="op9" id="op9" data-style="btn-secondary" data-live-search="true">
-                            <?php foreach ($edit_dt as $data) : ?>
+                            <?php foreach ($edit_dtt as $data) : ?>
                             <option value="<?=$data->op9;?>"><b><?=$data->op9;?></b></option>
                             <?php endforeach; ?>
                             <option value="0">--Belum Diisi--</option>
@@ -341,7 +342,7 @@
                             <div class="form-group">
                             <label for="">OP 10</label>
                             <select class="form-control selectpicker" data-size="3" name="op10" id="op10" data-style="btn-secondary" data-live-search="true">
-                            <?php foreach ($edit_dt as $data) : ?>
+                            <?php foreach ($edit_dtt as $data) : ?>
                             <option value="<?=$data->op10;?>"><b><?=$data->op10;?></b></option>
                             <?php endforeach; ?>
                             <option value="0">--Belum Diisi--</option>
@@ -355,7 +356,7 @@
                             </div>  
 
                         <div class="form-group" hidden>
-                        <?php foreach ($edit_dt as $data) : ?>
+                        <?php foreach ($edit_dtt as $data) : ?>
                         <label for="">ID</label>
                         <input type="text" name="id" class="form-control" value="<?=$data->id;?>">
                         <?php endforeach; ?>
