@@ -15,7 +15,7 @@
           <img src="<?php echo base_url()?>asset/dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"><b><?php echo $nama; ?></b></a>
+          <a href="#" class="d-block"><b>ADMIN<br><?php echo $nama; ?></b></a>
         </div>
       </div>
 

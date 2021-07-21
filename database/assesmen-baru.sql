@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 18 Jul 2021 pada 09.14
+-- Waktu pembuatan: 21 Jul 2021 pada 17.16
 -- Versi server: 10.4.20-MariaDB
 -- Versi PHP: 7.3.29
 
@@ -82,7 +82,7 @@ INSERT INTO `penilaian_dt` (`id`, `id_user`, `id_program`, `id_aktivitas`, `bula
 (2, '10', '1', '1', 'Juni', '2021', '2021-07-15', 'Kamis', '12:00', 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 5, 3, 60, '1'),
 (4, '10', '1', '4', 'Juni', '2021', '2021-07-17', 'Sabtu', '09:00', 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 3, 3, 100, '1'),
 (5, '2', '1', '1', 'Januari', '2021', '2021-01-01', 'Jumat', '10:00', 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 3, 2, 67, '1'),
-(6, '10', '3', '2', 'Juni', '2021', '2021-06-21', 'Sabtu', '10:20', 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 3, 2, 67, '1');
+(6, '10', '3', '2', 'Juni', '2021', '2021-06-21', 'Sabtu', '10:20', 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 100, '1');
 
 -- --------------------------------------------------------
 
@@ -121,8 +121,10 @@ CREATE TABLE `penilaian_dtt` (
 --
 
 INSERT INTO `penilaian_dtt` (`id`, `id_user`, `id_program`, `id_aktivitas`, `bulan`, `tahun`, `tanggal`, `hari`, `jam`, `op1`, `op2`, `op3`, `op4`, `op5`, `op6`, `op7`, `op8`, `op9`, `op10`, `op_total`, `rp`, `perhitungan`, `sesi`) VALUES
-(3, '10', '1', '1', 'Januari', '2020', '2021-07-16', 'Jumat', '10:00', 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 3, 3, 100, '1'),
-(4, '10', '1', '4', 'Januari', '2020', '2021-07-18', 'Minggu', '13:00', 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 4, 3, 75, '1');
+(2, '10', '1', '1', 'Juni', '2021', '2021-07-15', 'Kamis', '12:00', 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 5, 3, 60, '1'),
+(4, '10', '1', '4', 'Juni', '2021', '2021-07-17', 'Sabtu', '09:00', 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 3, 3, 90, '1'),
+(5, '2', '1', '1', 'Januari', '2021', '2021-01-01', 'Jumat', '10:00', 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 3, 2, 75, '1'),
+(6, '10', '3', '2', 'Juni', '2021', '2021-06-21', 'Sabtu', '10:20', 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 3, 3, 100, '1');
 
 -- --------------------------------------------------------
 
@@ -177,8 +179,8 @@ INSERT INTO `perhitungan_dtt` (`id_perhitungan`, `id_user`, `bulan`, `tahun`, `r
 (16, 10, 'Maret', '2020', '75', 'Cukup'),
 (17, 10, 'April', '2020', '50', 'Kurang'),
 (18, 10, 'Mei', '2020', '82', 'Baik'),
-(19, 10, 'Juni', '2020', '75', 'Baik'),
-(23, 2, 'Januari', '2021', '67', 'Cukup'),
+(19, 10, 'Juni', '2020', '80', 'Baik'),
+(23, 2, 'Januari', '2021', '75', 'Cukup'),
 (24, 10, 'Juni', '2021', '75.6666666', 'Cukup'),
 (25, 10, 'Januari', '2020', '87.5', 'Baik');
 
@@ -292,13 +294,13 @@ ALTER TABLE `aktivitas`
 -- AUTO_INCREMENT untuk tabel `penilaian_dt`
 --
 ALTER TABLE `penilaian_dt`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `penilaian_dtt`
 --
 ALTER TABLE `penilaian_dtt`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `perhitungan_dt`

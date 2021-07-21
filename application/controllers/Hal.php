@@ -34,28 +34,26 @@ class Hal extends CI_Controller {
         if($this->form_validation->run() != FALSE){
             
  
-             $ceklogin = $this->M_ppdb->cek_login_user($username,$password)->num_rows();
-             $cekloginid = $this->M_ppdb->cek_login_user($username,$password)->result();
+             $ceklogin = $this->M_assesmen->cek_login_user($username,$password)->num_rows();
+             $cekloginid = $this->M_assesmen->cek_login_user($username,$password)->result();
              if ($ceklogin == 1) {
-                 foreach ($cekloginid as $cek) {
-                     $id = $cek->id_pesertadidik;
-                     $nama_lengkap = $cek->nama_siswa;
-                     $role = $cek->role;
-                     $status = $cek->status;
-                     $username = $cek->username;
-                     $password = $cek->password;
-                    }
- 
+				foreach ($cekloginid as $cek) {
+					$id = $cek->id_user;
+					$role = $cek->role;
+					$nama = $cek->nama;
+					$username = $cek->no_induk;
+					$password = $cek->tanggal_lahir;
+				   }
 
-                     $sess_data =  array(
-                         'username' => $username,
-                         'password' => $password,
-                         'id_pesertadidik' => $id,
-                         'nama_siswa' => $nama_lengkap,
-                         'role' => $role,
-                         'status' => $status,
-                         'login' => 'Berhasil'              
-                        );
+
+					$sess_data =  array(
+						'no_induk' => $username,
+						'tanggal_lahir' => $password,
+						'nama' => $nama,
+						'id_user' => $id,
+						'role' => $role,
+						'login' => 'Berhasil'              
+					   );
  
                 //  redirect(base_url('home'));
 
@@ -100,12 +98,12 @@ class Hal extends CI_Controller {
 
 		);
 
-		$hitungusername= $this->M_ppdb->tampildatapengguna1($username,$password);
+		$hitungusername= $this->M_assesmen->tampildatapengguna1($username,$password);
 
 		if ($hitungusername >=1) {
 			$this->load->view('username_gagal');   
 		}else{
-            $hitungusernamedata= $this->M_ppdb->tampildatasiswa($username,$password);
+            $hitungusernamedata= $this->M_assesmen->tampildatasiswa($username,$password);
            
                 $this->M_ppdb->tambahuser($data,'pengguna');
                 $this->load->view('status');  

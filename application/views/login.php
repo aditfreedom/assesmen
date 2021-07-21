@@ -28,18 +28,22 @@
             <?php echo form_open('hal/login_aksi');?>
               <div class="form-label-group">
                 <input  name="username" id="inputEmail" class="form-control"  required autofocus>
-                <label for="inputEmail">NISN</label>
+                <label for="inputEmail">USERNAME</label>
               </div>
 
               <div class="form-label-group">
-                <input name="password" type="date" id="inputPassword" class="form-control" required>
-                <label for="inputPassword">TANGGAL LAHIR</label>
+                <input name="password" type="password" id="inputPassword" class="form-control" required>
+                <label for="inputPassword">PASSWORD</label>
               </div>
               <!-- <div class="form-label-group">
               <input type="checkbox" onclick="myFunction()" id="show"> Tampil Password
               </div> -->
 
               <button class="btn btn-lg text-light btn-block text-uppercase font-weight-bold rounded-pill" type="submit" style="background-color:#FF0064;"><b>Login</b></button>
+              <br>
+              <div class="text-center">
+              <a class="text-decoration-none font-weight-bold" href="<?=base_url()?>">KEMBALI KE HALAMAN UTAMA</a>
+              </div>
               <?php echo form_close();?>
             </div>
         </div>

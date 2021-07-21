@@ -4,12 +4,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">EDIT PROGRAM BELAJAR</h1>
+                    <h1 class="m-0 text-dark">DATA SISWA</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Monitoring</a></li>
-                        <li class="breadcrumb-item active">Edit Program Belajar</li>
+                        <li class="breadcrumb-item active">Data Siswa</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -19,26 +19,66 @@
     <div class="content">
        
     <div class="container">
-            <form method="post" action="<?php echo base_url('home/update_program'); ?>">
-            <?php foreach ($edit_program as $data) : ?>
+            <form method="post" action="<?php echo base_url('home/update_siswa'); ?>">
+            <?php foreach ($data_siswa as $data) : ?>
 
                 <div class="form-group">
-                <label for="">Kode Program</label>
-                <input type="text" name="kode_program" class="form-control" maxlength="100" value="<?=$data->kode_program;?>">
+                <label for="">Nama Siswa</label>
+                <input disabled type="text" name="nama" class="form-control" maxlength="25" value="<?=$data->nama;?>">
                 </div>
 
                 <div class="form-group">
-                <label for="">Nama Program</label>
-                <input type="text" name="nama_program" class="form-control" maxlength="100" value="<?=$data->nama_program;?>">
+                <label for="">NISN</label>
+                <input disabled type="text" name="no_induk" class="form-control" maxlength="15" value="<?=$data->no_induk;?>">
+                </div>
+
+                <div class="form-group">
+                <label for="">Jenis Kelamin</label>
+                <input disabled type="text" name="no_induk" class="form-control" maxlength="15" value="<?=$data->jk;?>">
+                </div>
+
+                <div class="form-group">
+                <label for="">Alamat</label>
+                <input disabled type="text" name="alamat" class="form-control" maxlength="30" value="<?=$data->alamat;?>">
+                </div>
+
+                <div class="form-group">
+                <label for="">Email</label>
+                <input disabled type="email" name="email" class="form-control" maxlength="25" value="<?=$data->email;?>">
+                </div>
+
+                <div class="form-group">
+                <label for="">Tempat Lahir</label>
+                <input disabled type="text" name="tempat_lahir" class="form-control" maxlength="50" value="<?=$data->tempat_lahir;?>">
+                </div>
+
+                <div class="form-group">
+                <label for="">Tanggal Lahir</label>
+                <input disabled type="date" name="tanggal_lahir" class="form-control" value="<?=$data->tanggal_lahir;?>">
+                </div>
+
+                <div class="form-group">
+                <label for="">Rombel</label>
+                <input disabled type="text" name="rombel" class="form-control" maxlength="40" value="<?=$data->rombel;?>">
+                </div>
+
+                <div class="form-group">
+                <label for="">Layak PIP</label>
+                <select disabled class="form-control selectpicker" data-size="3" name="layak_pip" id="layak_pip" data-style="btn-secondary" data-live-search="true">
+                <option  selected value="<?=$data->layak_pip;?>"><?=$data->layak_pip;?></option>
+                <option value="Ya">Ya</option>
+                <option value="Tidak">Tidak</option>
+                </select>
+                </div>
+
+                <div hidden class="form-group">
+                <label for="">Role</label>
+                <input type="text" name="role" class="form-control" value="2">
                 </div>
 
                 <div hidden class="form-group">
                 <label for="">ID</label>
-                <input type="text" name="id_program" class="form-control" value="<?=$data->id_program;?>">
-                </div>
-
-                <div class="form-group">
-                <button type="submit" class="btn text-bold btn-primary form-control" style="height:40px;">UBAH DATA</button>                    
+                <input type="text" name="id_user" class="form-control" value="<?=$data->id_user;?>">
                 </div>
                 <?php endforeach; ?>
 

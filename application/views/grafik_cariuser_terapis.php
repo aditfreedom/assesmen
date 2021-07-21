@@ -4,12 +4,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">TABEL PENILAIAN DT</h1>
+                    <h1 class="m-0 text-dark">GRAFIK HASIL</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Monitoring</a></li>
-                        <li class="breadcrumb-item active">Penilaian DT</li>
+                        <li class="breadcrumb-item active">Grafik</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -19,44 +19,26 @@
     <div class="content">
        
     <div class="container">
-            <p align="left">
+            <!-- <p align="left">
             <a href="<?= base_url('home/tambah_dt'); ?>" class="btn btn-success">
             <i class="fa fa-plus"></i> Tambah Data</a>
-            </p>
+            </p> -->
 
         <table class="table table-hover" id="example">
             <thead class="text-center">
                 <tr>
                     <th scope="col">NO</th>
                     <th scope="col">NAMA SISWA</th>
-                    <th scope="col">PROGRAM</th>
-                    <th scope="col">AKTIVITAS</th>
-                    <th scope="col">BULAN - TAHUN</th>
-                    <th scope="col">TANGGAL</th>
-                    <th scope="col">OPPORTUNITY</th>
-                    <th scope="col">RESPON BENAR</th>
-                    <th scope="col">PERHITUNGAN %</th>
-
-
-
                     <th scope="col">AKSI</th>
                 </tr>
             </thead>
             <tbody>
                 <?php $i = 1;
-                foreach ($penilaian_dt as $data) : ?>
+                foreach ($user as $data) : ?>
                     <tr class="nomor text-center">
                         <th scope="row"><?php echo $i; ?></th>
                         <td><?php echo $data->nama; ?></td>
-                        <td><b>(<?php echo $data->kode_program;?>)</b> <?php echo $data->nama_program;?></td>
-                        <td><?php echo $data->aktivitas; ?></td>
-                        <td><?php echo $data->bulan; ?> - <?php echo $data->tahun; ?></td>
-                        <td><?php echo $data->tanggal; ?></td>
-                        <td><?php echo $data->op_total; ?></td>
-                        <td><?php echo $data->rp; ?></td>
-                        <td><?php echo $data->perhitungan; ?></td>
-                        <td><?php echo anchor('home/edit_dt/'.$data->id,'<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>')?>
-                        <?php echo anchor('home/hapus_dt/'.$data->id,'<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>')?></td>	
+                        <td><?php echo anchor('admin/grafik_hasil/'.$data->id_user,'<div class="font-weight-bold btn btn-primary btn-sm">LIHAT DATA</div>')?></td>
                     </tr>
                     <?php $i++; ?>
                 <?php endforeach; ?>

@@ -11,6 +11,11 @@ class M_assesmen extends CI_Model
         return $this->db->query("SELECT * FROM user WHERE role='2'");
     }
 
+    public function tampildatasiswa_biodata($id)
+    {
+        return $this->db->query("SELECT * FROM user WHERE id_user='$id'");
+    }
+
     public function tampildatasiswa_assesmen_byid($id)
     {
         return $this->db->query("SELECT * FROM user WHERE id_user='$id'");
@@ -358,11 +363,17 @@ class M_assesmen extends CI_Model
                                 aktivitas ON penilaian_dtt.id_aktivitas = aktivitas.id_aktivitas
                                 WHERE penilaian_dtt.id_user='$id_user' AND penilaian_dtt.bulan='$bulan' AND penilaian_dtt.tahun='$tahun' ORDER BY id ASC");
     }
-    // public function ambil_persen_dt($bulan,$tahun)
-    // {
-    //     return $this->db->query("SELECT perhitungan FROM penilaian_dt WHERE bulan='$bulan' AND tahun='$tahun' ORDER BY id DESC");
-    // }
 
+    public function biodata($id)
+    {
+        return $this->db->query("SELECT * FROM user WHERE id_user='$id'");
+    }
+
+    function cek_login_user($username, $password)
+    {
+        return $this->db->query("SELECT * FROM user
+        where no_induk='$username' AND tanggal_lahir='$password'");
+    }
 
 
 
@@ -1183,12 +1194,6 @@ LEFT JOIN data_sd ON datasiswa.id_sekolah = data_sd.id_sekolah WHERE pengguna.id
         where pengguna.username='$username' AND pengguna.password='$password'");
     }
 
-    function cek_login_user($username, $password)
-    {
-        return $this->db->query("SELECT * FROM pengguna
-        LEFT JOIN datasiswa ON pengguna.id_pesertadidik = datasiswa.id_pesertadidik
-        where pengguna.username='$username' AND pengguna.password='$password'");
-    }
 
   
 

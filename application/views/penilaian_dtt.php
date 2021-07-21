@@ -32,7 +32,7 @@
                     <th scope="col">PROGRAM</th>
                     <th scope="col">AKTIVITAS</th>
                     <th scope="col">BULAN - TAHUN</th>
-                    <th scope="col">SESI KE</th>
+                    <th scope="col">TANGGAL</th>
                     <th scope="col">OPPORTUNITY</th>
                     <th scope="col">RESPON BENAR</th>
                     <th scope="col">PERHITUNGAN %</th>
@@ -51,7 +51,7 @@
                         <td><b>(<?php echo $data->kode_program;?>)</b> <?php echo $data->nama_program;?></td>
                         <td><?php echo $data->aktivitas; ?></td>
                         <td><?php echo $data->bulan; ?> - <?php echo $data->tahun; ?></td>
-                        <td>Ke-<?php echo $data->sesi; ?></td>
+                        <td><?php echo $data->tanggal; ?></td>
                         <td><?php echo $data->op_total; ?></td>
                         <td><?php echo $data->rp; ?></td>
                         <td><?php echo $data->perhitungan; ?></td>

@@ -40,6 +40,10 @@
               </div> -->
 
               <button class="btn btn-lg text-light btn-block text-uppercase font-weight-bold rounded-pill" type="submit" style="background-color:#FF0064;"><b>Login</b></button>
+              <br>
+              <div class="text-center">
+              <a class="text-decoration-none font-weight-bold" href="<?=base_url()?>">KEMBALI KE HALAMAN UTAMA</a>
+              </div>
               <?php echo form_close();?>
             </div>
         </div>

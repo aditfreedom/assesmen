@@ -19,10 +19,10 @@
     <div class="content">
        
     <div class="container">
-            <p align="left">
+            <!-- <p align="left">
             <a href="<?= base_url('home/tambah_dt'); ?>" class="btn btn-success">
             <i class="fa fa-plus"></i> Tambah Data</a>
-            </p>
+            </p> -->
 
         <table class="table table-hover" id="example">
             <thead class="text-center">
@@ -32,14 +32,10 @@
                     <th scope="col">PROGRAM</th>
                     <th scope="col">AKTIVITAS</th>
                     <th scope="col">BULAN - TAHUN</th>
-                    <th scope="col">TANGGAL</th>
+                    <th scope="col">SESI KE</th>
                     <th scope="col">OPPORTUNITY</th>
                     <th scope="col">RESPON BENAR</th>
                     <th scope="col">PERHITUNGAN %</th>
-
-
-
-                    <th scope="col">AKSI</th>
                 </tr>
             </thead>
             <tbody>
@@ -51,12 +47,10 @@
                         <td><b>(<?php echo $data->kode_program;?>)</b> <?php echo $data->nama_program;?></td>
                         <td><?php echo $data->aktivitas; ?></td>
                         <td><?php echo $data->bulan; ?> - <?php echo $data->tahun; ?></td>
-                        <td><?php echo $data->tanggal; ?></td>
+                        <td>Ke-<?php echo $data->sesi; ?></td>
                         <td><?php echo $data->op_total; ?></td>
                         <td><?php echo $data->rp; ?></td>
                         <td><?php echo $data->perhitungan; ?></td>
-                        <td><?php echo anchor('home/edit_dt/'.$data->id,'<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>')?>
-                        <?php echo anchor('home/hapus_dt/'.$data->id,'<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>')?></td>	
                     </tr>
                     <?php $i++; ?>
                 <?php endforeach; ?>

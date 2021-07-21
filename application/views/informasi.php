@@ -69,7 +69,7 @@
             <h1>Aplikasi Monitoring Terapi Autisme Dengan<span> <br>Metode ABA</span></h1>
             <h2>SLB Vokasional Muhammadiyah Bireuen</h2>
             <div class="text-center text-lg-left">
-              <a href="<?=base_url('hal/login')?>" class="btn-get-started scrollto">LOGIN SISWA</a>
+              <a href="<?=base_url('hal/login')?>" class="font-weight-bold btn-get-started scrollto">LOGIN ORANG TUA SISWA</a>
             </div>
           </div>
         </div>
