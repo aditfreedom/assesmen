@@ -955,7 +955,126 @@ class Home extends CI_Controller
 
 	}
 
+	public function rekap_penilaian()
+	{
+		$sess_data = $this->session->userdata();
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('rekap_penilaian');
+		$this->load->view('template/footer');
+	}
 
+	public function rekap_dt()
+	{
+		$sess_data = $this->session->userdata();
+		$data['user'] = $this->M_assesmen->tampil_user_siswa_rekap()->result();
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('rekap_dt',$data);
+		$this->load->view('template/footer');
+	}
+
+	public function rekap_hasil_dt($id)
+	{
+		$sess_data = $this->session->userdata();
+		$data['rekap'] = $this->M_assesmen->tampil_rekap_bulan_dt($id)->result();
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('rekap_hasil_dt',$data);
+		$this->load->view('template/footer');
+	}
+
+	public function rekap_hasil_bulanan_dt()
+	{
+
+		$sess_data 		= $this->session->userdata();
+		$bulan    		= $this->input->get('bulan');
+		$tahun    		= $this->input->get('tahun');
+		$id_user    		= $this->input->get('id');
+
+		$data['penilaian_dt'] = $this->M_assesmen->tampildt_siswa($id_user,$bulan,$tahun)->result();
+
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('penilaian_dt_user',$data);
+		$this->load->view('template/footer');
+	}
+
+	public function rekap_dtt()
+	{
+		$sess_data = $this->session->userdata();
+		$data['user'] = $this->M_assesmen->tampil_user_siswa_rekap()->result();
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('rekap_dtt',$data);
+		$this->load->view('template/footer');
+	}
+
+	public function rekap_hasil_dtt($id)
+	{
+		$sess_data = $this->session->userdata();
+		$data['rekap'] = $this->M_assesmen->tampil_rekap_bulan_dtt($id)->result();
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('rekap_hasil_dtt',$data);
+		$this->load->view('template/footer');
+	}
+
+	public function rekap_hasil_bulanan_dtt()
+	{
+
+		$sess_data 		= $this->session->userdata();
+		$bulan    		= $this->input->get('bulan');
+		$tahun    		= $this->input->get('tahun');
+		$id_user    		= $this->input->get('id');
+
+		$data['penilaian_dt'] = $this->M_assesmen->tampildtt_siswa($id_user,$bulan,$tahun)->result();
+
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('penilaian_dtt_user',$data);
+		$this->load->view('template/footer');
+	}
+
+	public function grafik()
+	{
+		$sess_data = $this->session->userdata();
+		$data['user'] = $this->M_assesmen->tampil_user_siswa_rekap()->result();
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('grafik_cariuser',$data);
+		$this->load->view('template/footer');
+	}
+
+	public function grafik_hasil($id)
+	{
+		$sess_data = $this->session->userdata();
+		$data['rekap'] = $this->M_assesmen->tampil_rekap_bulan_dt($id)->result();
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('grafik_hasil',$data);
+		$this->load->view('template/footer');
+	}
+	
+	public function tampil_grafik()
+	{
+
+		$sess_data 		= $this->session->userdata();
+		$bulan    		= $this->input->get('bulan');
+		$tahun    		= $this->input->get('tahun');
+		$id_user    		= $this->input->get('id');
+		$nama    		= $this->input->get('nama');
+
+		$data['nama']=$nama;
+		$data['penilaian_dt'] = $this->M_assesmen->tampildt_siswa($id_user,$bulan,$tahun)->result();
+		$data['penilaian_dtt'] = $this->M_assesmen->tampildtt_siswa($id_user,$bulan,$tahun)->result();
+
+
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('tampil_grafik',$data);
+		$this->load->view('template/footer');
+	}
 
 	
 	// public function rata_dt()

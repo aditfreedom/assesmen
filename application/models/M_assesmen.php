@@ -321,6 +321,43 @@ class M_assesmen extends CI_Model
         $this->db->update($table);
     }
 
+    public function tampil_user_siswa_rekap()
+    {
+        return $this->db->query("SELECT * FROM user WHERE role ='2'");
+    }
+
+    public function tampil_rekap_bulan_dt($id)
+    {
+        return $this->db->query("SELECT * FROM perhitungan_dt 
+                                LEFT JOIN user ON perhitungan_dt.id_user = user.id_user
+                                WHERE perhitungan_dt.id_user='$id'");
+    }
+
+
+    public function tampildt_siswa($id_user,$bulan,$tahun)
+    {
+        return $this->db->query("SELECT * FROM penilaian_dt LEFT JOIN user ON
+                                penilaian_dt.id_user = user.id_user LEFT JOIN 
+                                program ON penilaian_dt.id_program = program.id_program LEFT JOIN
+                                aktivitas ON penilaian_dt.id_aktivitas = aktivitas.id_aktivitas
+                                WHERE penilaian_dt.id_user='$id_user' AND penilaian_dt.bulan='$bulan' AND penilaian_dt.tahun='$tahun' ORDER BY id ASC");
+    }
+
+    public function tampil_rekap_bulan_dtt($id)
+    {
+        return $this->db->query("SELECT * FROM perhitungan_dtt
+                                LEFT JOIN user ON perhitungan_dtt.id_user = user.id_user
+                                WHERE perhitungan_dtt.id_user='$id'");
+    }
+
+    public function tampildtt_siswa($id_user,$bulan,$tahun)
+    {
+        return $this->db->query("SELECT * FROM penilaian_dtt LEFT JOIN user ON
+                                penilaian_dtt.id_user = user.id_user LEFT JOIN 
+                                program ON penilaian_dtt.id_program = program.id_program LEFT JOIN
+                                aktivitas ON penilaian_dtt.id_aktivitas = aktivitas.id_aktivitas
+                                WHERE penilaian_dtt.id_user='$id_user' AND penilaian_dtt.bulan='$bulan' AND penilaian_dtt.tahun='$tahun' ORDER BY id ASC");
+    }
     // public function ambil_persen_dt($bulan,$tahun)
     // {
     //     return $this->db->query("SELECT perhitungan FROM penilaian_dt WHERE bulan='$bulan' AND tahun='$tahun' ORDER BY id DESC");

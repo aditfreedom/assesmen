@@ -137,13 +137,13 @@
             
             <ul class="nav nav-treeview">
             <li class="nav-item">
-                <a href="<?=base_url('user/registrasi_ulang/');?>" class="nav-link">
+                <a href="<?=base_url('home/rekap_penilaian/');?>" class="nav-link">
                   <i class="far fa fa-table nav-icon"></i>
                   <p>Rekap Penilaian</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=base_url('user/registrasi_ulang/');?>" class="nav-link">
+                <a href="<?=base_url('home/grafik/');?>" class="nav-link">
                   <i class="far fa fa-chart-bar nav-icon"></i>
                   <p>Grafik</p>
                 </a>

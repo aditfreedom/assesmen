@@ -32,7 +32,7 @@
               </div>
 
               <div class="form-label-group">
-                <input name="password" type="date" id="inputPassword" class="form-control" required>
+                <input name="password" type="password" id="inputPassword" class="form-control" required>
                 <label for="inputPassword">PASSWORD</label>
               </div>
               <!-- <div class="form-label-group">
