@@ -141,7 +141,7 @@
                     </div>
 
                     <div class="form-group">
-                    <button type="submit" class="btn text-bold btn-primary form-control" style="height:40px;">SIMPAN DATA SISWA</button>                    
+                    <button type="submit" class="btn text-bold btn-primary form-control" style="height:40px;">SIMPAN DATA ADMIN</button>                    
                     </div>
 
                 </form>
