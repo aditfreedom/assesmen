@@ -51,7 +51,7 @@
                         <td><?php echo $data->op_total; ?></td>
                         <td><?php echo $data->rp; ?></td>
                         <td><?php echo $data->perhitungan; ?></td>
-s                    </tr>
+                  </tr>
                     <?php $i++; ?>
                 <?php endforeach; ?>
             </tbody>

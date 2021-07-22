@@ -1045,7 +1045,7 @@ class User extends CI_Controller
 		$sess_data = $this->session->userdata();
 		$data['rekap'] = $this->M_assesmen->tampil_rekap_bulan_dt($id)->result();
 		$this->load->view('template/header');
-		$this->load->view('template/sidebar', $sess_data);
+		$this->load->view('template/sidebar_user', $sess_data);
 		$this->load->view('grafik_hasil_user',$data);
 		$this->load->view('template/footer');
 	}
