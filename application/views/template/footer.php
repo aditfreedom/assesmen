@@ -73,9 +73,9 @@ $(document).ready(function() {
     $('#example').DataTable( {
         dom: 'Bfrtip',
         buttons: [
-            {extend:'excel',title: 'PPDB Daring Kab. Bireuen',className: 'btn btn-primary'}, 
-            {extend:'pdf',title: 'PPDB Daring Kab. Bireuen',className: 'btn btn-primary'}, 
-            {extend:'print',title: 'PPDB Daring Kab. Bireuen',className: 'btn btn-primary'} 
+            {extend:'excel',title: 'Monitoring Terapi Autisme ABA',className: 'btn btn-primary'}, 
+            {extend:'pdf',title: 'Monitoring Terapi Autisme ABA',className: 'btn btn-primary'}, 
+            {extend:'print',title: 'Monitoring Terapi Autisme ABA',className: 'btn btn-primary'} 
         ]
     } );
 } );
