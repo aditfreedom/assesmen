@@ -731,34 +731,178 @@ class Home extends CI_Controller
 
 
 		$rata=$perhitungan/$data;
+		echo "
+		<style>
+			.myDiv {
+			border: 5px outset red;
+			background-color: lightblue;    
+			text-align: center;
+			}
+			.myDiv2 {
+				border: 5px outset green;
+				background-color: yellow;    
+				text-align: center;
+				}
+			.table-dev {
+				border: 5px outset red;
+				background-color: lightblue;    
+				text-align: center;
+				width:100%;
+				}
+				.tombol {
+					background-color: #4CAF50;
+					border: none;
+					color: white;
+					padding-top: 15px;
+					padding-bottom: 15px;
+					text-align: center;
+					text-decoration: none;
+					display: inline-block;
+					font-size: 16px;
+					cursor: pointer;
+					width:100%;
+					font-weight:bold;
+				}
+				.tombol2 {
+					background-color: #E74C3C;
+					border: none;
+					color: white;
+					padding-top: 15px;
+					padding-bottom: 15px;
+					text-align: center;
+					text-decoration: none;
+					display: inline-block;
+					font-size: 16px;
+					cursor: pointer;
+					width:100%;
+					font-weight:bold;
+				}
+		</style>";
+		echo '<br><hr><div class="myDiv">';
+		echo '<h3>Total Penilaian DT Bulan '.$bulan.' '.$tahun.' = '.$perhitungan.'<br></h3>';
+		echo '<h3>Total Data Penilaian DT Bulan '.$bulan.' '.$tahun.' = '.$data.'<br></h3>';
+		echo '<h3>Rata-Rata Bulan '.$bulan.' '.$tahun.' = '.$rata.'<br></h3>';
+		echo '</div>';
 
-		$rata_penilaian=$this->M_assesmen->tampil_rata_penilaian()->result();
-		$rata_penilaian2= $this->M_assesmen->tampil_rata_penilaian()->num_rows();
+		$rata_penilaian=$this->M_assesmen->tampil_rata_penilaian_admin()->result();
+		$rata_penilaian2= $this->M_assesmen->tampil_rata_penilaian_admin()->num_rows();
 
-  
-        
-        for ($i=0; $i < $rata_penilaian2; $i++) {
+		echo '<br><hr>';
+		echo '<h3>DATA LATIH DT : </h3>';
+		echo "<table border=1 class='table-dev'>";
+		echo "<thead>";
+		echo "<tr>";
+		echo "<th>ID Siswa</th>";
+		echo "<th>Bulan</th>";
+		echo "<th>Tahun</th>";
+		echo "<th>Rata-Rata</th>";
+		echo "<th>Kategori</th>";
+		echo "</tr>";
+		echo "</thead>";
+		echo "<tbody>";
+
+
+		for ($i=0; $i < $rata_penilaian2; $i++) {
 
 			$jarak= json_decode( json_encode($rata_penilaian), true);
 			$rata2[$i] = $jarak[$i]['rata'];
 			$kategori2 = $jarak[$i]['kategori'];
 			$hasil[$i] = ['rata'=>sqrt(($rata-$rata2[$i])*($rata-$rata2[$i])),'kategori'=>$kategori2];
-
+			echo "<tr>"."<td>". $jarak[$i]['id_user']."</td>"."<td>". $jarak[$i]['bulan']."</td>"."</td>"."<td>". $jarak[$i]['tahun']."</td>"."<td>". $jarak[$i]['rata']."</td>"."<td>". $jarak[$i]['kategori']."</td>"."</tr>";
 		}
+		echo "</tbody>";
+		echo "</table>";
+
+		echo '<br><hr>';
+        echo '<h3>PENCARIAN BOBOT BULANAN :</h3>';
+		echo "<table border=1 class='table-dev'>";
+		echo "<thead>";
+		echo "<tr>";
+		echo "<th>ID Siswa</th>";
+		echo "<th>Bulan</th>";
+		echo "<th>Tahun</th>";
+		echo "<th>Pencarian Eucledian Distance</th>";
+		echo "<th>Bobot</th>";
+		echo "</tr>";
+		echo "</thead>";
+		echo "<tbody>";
+
+
+		for ($i=0; $i < $rata_penilaian2; $i++) {
+
+			$jarak= json_decode( json_encode($rata_penilaian), true);
+			$rata2[$i] = $jarak[$i]['rata'];
+			$kategori2 = $jarak[$i]['kategori'];
+			$hasil[$i] = ['rata'=>sqrt(($rata-$rata2[$i])*($rata-$rata2[$i])),'kategori'=>$kategori2];
+			echo "<tr>"."<td>". $jarak[$i]['id_user']."</td>"."<td>". $jarak[$i]['bulan']."</td>"."</td>"."<td>". $jarak[$i]['tahun']."</td>"."<td>". "sqrt(" .$rata."-"."$rata2[$i]".")"."^2"."<td>".$hasil[$i]['rata']."</td>"."</tr>";
+		}
+		echo "</tbody>";
+		echo "</table>";
+
+
+		echo '<br><hr>';
+		echo '<h3>PENGURUTAN BOBOT DARI TERKECIL KE TERBESAR :</h3>';
+
+		echo "<table border=1 class='table-dev'>";
+		echo "<thead>";
+		echo "<tr>";
+		echo "<th>No</th>";
+		echo "<th>Bobot</th>";
+		echo "<th>Kategori</th>";
+		echo "</tr>";
+		echo "</thead>";
+
+		echo "<tbody>";
 
 		sort($hasil);
 		$clength = count($hasil);
+		$no = 0;
 		for($x = 0; $x < $clength; $x++) {
 		  $hasil[$x];
+		  $no++;
+		  echo "<tr>"."<td>". $no."</td>"."<td>".$hasil[$x]['rata']."</td>"."<td>".$hasil[$x]['kategori']."</td>"."</tr>";
+
 		}
 
+		echo "</tbody>";
+		echo "</table>";
+
+
 		$k=3;
+		echo '<br><hr>';
+		echo '<h3>PENENTUAN K = 3</h3>';
+
+		echo "<table border=1 class='table-dev'>";
+		echo "<thead>";
+		echo "<tr>";
+		echo "<th>No</th>";
+		echo "<th>Bobot</th>";
+		echo "<th>Kategori</th>";
+		echo "</tr>";
+		echo "</thead>";
+
+		echo "<tbody>";
 		$knn = array_slice($hasil, 0, $k);
+		$nomor=0;
+		for($x = 0; $x < $k; $x++) {
+			$knn[$x];
+			$nomor++;
+			echo "<tr>"."<td>". $nomor."</td>"."<td>".$knn[$x]['rata']."</td>"."<td>".$knn[$x]['kategori']."</td>"."</tr>";
+  
+		  }
+
+		echo "</tbody>";
+		echo "</table>";
+
 
 
 		$kategori_baik = 0;
 		$kategori_cukup = 0;
 		$kategori_kurang = 0;
+		
+		echo '<br><hr>';
+		echo '<h3>PENENTUAN JUMLAH KATEGORI MAYORITAS BERDASARKAN JUMLAH K=3 : </h3>';
+
 
 		for ($row = 0; $row < 3; $row++) {
 			if($knn[$row]["kategori"]=="Baik") {
@@ -771,6 +915,25 @@ class Home extends CI_Controller
 			$kategori_kurang++;
 	   }
 		}
+
+		echo "<table border=1 class='table-dev'>";
+		echo "<thead>";
+		echo "<tr>";
+		echo "<th>No</th>";
+		echo "<th>Kategori</th>";
+		echo "<th>Jumlah</th>";
+		echo "</tr>";
+		echo "</thead>";
+		echo "<tbody>";
+
+		echo "<tr>"."<td>1</td>"."<td>Kategori Baik</td>"."<td>".$kategori_baik."</td>"."</tr>";
+		echo "<tr>"."<td>2</td>"."<td>Kategori Cukup</td>"."<td>".$kategori_cukup."</td>"."</tr>";
+		echo "<tr>"."<td>3</td>"."<td>Kategori Kurang</td>"."<td>".$kategori_kurang."</td>"."</tr>";
+
+
+		echo "</tbody>";
+		echo "</table>";
+
 
 		$kategori_baik = $kategori_baik ."Baik";
 		$kategori_cukup = $kategori_cukup ."Cukup";
@@ -820,9 +983,16 @@ class Home extends CI_Controller
 			$this->M_assesmen->update_perhitungan_dt($where,$data, 'perhitungan_dt');
 		}
 
-		$this->load->view('berhasil_hitung_dt',$data);
+		echo '<br><hr><div class="tombol2"><b>Kategori Yang Didapatkan = '.$kategori.'</b></div><br><br>';
+
+		echo "<br><a class='tombol' href=".base_url('home/hitung_dt').">KEMBALI KE HALAMAN HITUNG DT</a><br><br>";
+
+		// $this->load->view('berhasil_hitung_dt',$data);
+
 
 	}
+
+
 
 	public function hitung_dtt()
 	{
@@ -859,36 +1029,175 @@ class Home extends CI_Controller
 		$id_user		= $this->input->post('id_user');
 
 
-
 		$rata=$perhitungan/$data;
+		echo "
+		<style>
+			.myDiv {
+			border: 5px outset red;
+			background-color: lightblue;    
+			text-align: center;
+			}
+			.myDiv2 {
+				border: 5px outset green;
+				background-color: yellow;    
+				text-align: center;
+				}
+			.table-dev {
+				border: 5px outset red;
+				background-color: lightblue;    
+				text-align: center;
+				width:100%;
+				}
+				.tombol {
+					background-color: #4CAF50;
+					border: none;
+					color: white;
+					padding-top: 15px;
+					padding-bottom: 15px;
+					text-align: center;
+					text-decoration: none;
+					display: inline-block;
+					font-size: 16px;
+					cursor: pointer;
+					width:100%;
+					font-weight:bold;
+				}
+				.tombol2 {
+					background-color: #E74C3C;
+					border: none;
+					color: white;
+					padding-top: 15px;
+					padding-bottom: 15px;
+					text-align: center;
+					text-decoration: none;
+					display: inline-block;
+					font-size: 16px;
+					cursor: pointer;
+					width:100%;
+					font-weight:bold;
+				}
+		</style>";
+		echo '<br><hr><div class="myDiv">';
+		echo '<h3>Total Penilaian DTT Bulan '.$bulan.' '.$tahun.' = '.$perhitungan.'<br></h3>';
+		echo '<h3>Total Data Penilaian DTT Bulan '.$bulan.' '.$tahun.' = '.$data.'<br></h3>';
+		echo '<h3>Rata-Rata Bulan '.$bulan.' '.$tahun.' = '.$rata.'<br></h3>';
+		echo '</div>';
 
-		$rata_penilaian=$this->M_assesmen->tampil_rata_penilaian_dt()->result();
-		$rata_penilaian2= $this->M_assesmen->tampil_rata_penilaian_dt()->num_rows();
+		$rata_penilaian=$this->M_assesmen->tampil_rata_penilaian_dtt_admin()->result();
+		$rata_penilaian2= $this->M_assesmen->tampil_rata_penilaian_dtt_admin()->num_rows();
 
-  
-        
-        for ($i=0; $i < $rata_penilaian2; $i++) {
+		echo '<br><hr>';
+		echo '<h3>DATA LATIH DTT : </h3>';
+		echo "<table border=1 class='table-dev'>";
+		echo "<thead>";
+		echo "<tr>";
+		echo "<th>ID Siswa</th>";
+		echo "<th>Bulan</th>";
+		echo "<th>Tahun</th>";
+		echo "<th>Rata-Rata</th>";
+		echo "<th>Kategori</th>";
+		echo "</tr>";
+		echo "</thead>";
+		echo "<tbody>";
+
+
+		for ($i=0; $i < $rata_penilaian2; $i++) {
 
 			$jarak= json_decode( json_encode($rata_penilaian), true);
 			$rata2[$i] = $jarak[$i]['rata'];
 			$kategori2 = $jarak[$i]['kategori'];
 			$hasil[$i] = ['rata'=>sqrt(($rata-$rata2[$i])*($rata-$rata2[$i])),'kategori'=>$kategori2];
-
+			echo "<tr>"."<td>". $jarak[$i]['id_user']."</td>"."<td>". $jarak[$i]['bulan']."</td>"."</td>"."<td>". $jarak[$i]['tahun']."</td>"."<td>". $jarak[$i]['rata']."</td>"."<td>". $jarak[$i]['kategori']."</td>"."</tr>";
 		}
+		echo "</tbody>";
+		echo "</table>";
+
+		echo '<br><hr>';
+        echo '<h3>PENCARIAN BOBOT BULANAN :</h3>';
+		echo "<table border=1 class='table-dev'>";
+		echo "<thead>";
+		echo "<tr>";
+		echo "<th>ID Siswa</th>";
+		echo "<th>Bulan</th>";
+		echo "<th>Tahun</th>";
+		echo "<th>Pencarian Eucledian Distance</th>";
+		echo "<th>Bobot</th>";
+		echo "</tr>";
+		echo "</thead>";
+		echo "<tbody>";
+
+
+		for ($i=0; $i < $rata_penilaian2; $i++) {
+
+			$jarak= json_decode(json_encode($rata_penilaian), true);
+			$rata2[$i] = $jarak[$i]['rata'];
+			$kategori2 = $jarak[$i]['kategori'];
+			$hasil[$i] = ['rata'=>sqrt(($rata-$rata2[$i])*($rata-$rata2[$i])),'kategori'=>$kategori2];
+			echo "<tr>"."<td>". $jarak[$i]['id_user']."</td>"."<td>". $jarak[$i]['bulan']."</td>"."</td>"."<td>". $jarak[$i]['tahun']."</td>"."<td>". "sqrt(" .$rata."-"."$rata2[$i]".")"."^2"."<td>".$hasil[$i]['rata']."</td>"."</tr>";
+		}
+		echo "</tbody>";
+		echo "</table>";
+
+
+		echo '<br><hr>';
+		echo '<h3>PENGURUTAN BOBOT DARI TERKECIL KE TERBESAR :</h3>';
+
+		echo "<table border=1 class='table-dev'>";
+		echo "<thead>";
+		echo "<tr>";
+		echo "<th>No</th>";
+		echo "<th>Bobot</th>";
+		echo "<th>Kategori</th>";
+		echo "</tr>";
+		echo "</thead>";
+
+		echo "<tbody>";
 
 		sort($hasil);
 		$clength = count($hasil);
+		$no = 0;
 		for($x = 0; $x < $clength; $x++) {
 		  $hasil[$x];
+		  $no++;
+		  echo "<tr>"."<td>". $no."</td>"."<td>".$hasil[$x]['rata']."</td>"."<td>".$hasil[$x]['kategori']."</td>"."</tr>";
+
 		}
 
-		$k=3;
-		$knn = array_slice($hasil, 0, $k);
+		echo "</tbody>";
+		echo "</table>";
 
+
+		$k=3;
+		echo '<br><hr>';
+		echo '<h3>PENENTUAN K = 3</h3>';
+		echo "<table border=1 class='table-dev'>";
+		echo "<thead>";
+		echo "<tr>";
+		echo "<th>No</th>";
+		echo "<th>Bobot</th>";
+		echo "<th>Kategori</th>";
+		echo "</tr>";
+		echo "</thead>";
+
+		echo "<tbody>";
+		$knn = array_slice($hasil, 0, $k);
+		$nomor=0;
+		for($x = 0; $x < $k; $x++) {
+			$knn[$x];
+			$nomor++;
+			echo "<tr>"."<td>". $nomor."</td>"."<td>".$knn[$x]['rata']."</td>"."<td>".$knn[$x]['kategori']."</td>"."</tr>";
+		  }
+
+		echo "</tbody>";
+		echo "</table>";
 
 		$kategori_baik = 0;
 		$kategori_cukup = 0;
 		$kategori_kurang = 0;
+		
+		echo '<br><hr>';
+		echo '<h3>PENENTUAN JUMLAH KATEGORI MAYORITAS BERDASARKAN JUMLAH K=3 : </h3>';
+
 
 		for ($row = 0; $row < 3; $row++) {
 			if($knn[$row]["kategori"]=="Baik") {
@@ -901,6 +1210,25 @@ class Home extends CI_Controller
 			$kategori_kurang++;
 	   }
 		}
+
+		echo "<table border=1 class='table-dev'>";
+		echo "<thead>";
+		echo "<tr>";
+		echo "<th>No</th>";
+		echo "<th>Kategori</th>";
+		echo "<th>Jumlah</th>";
+		echo "</tr>";
+		echo "</thead>";
+		echo "<tbody>";
+
+		echo "<tr>"."<td>1</td>"."<td>Kategori Baik</td>"."<td>".$kategori_baik."</td>"."</tr>";
+		echo "<tr>"."<td>2</td>"."<td>Kategori Cukup</td>"."<td>".$kategori_cukup."</td>"."</tr>";
+		echo "<tr>"."<td>3</td>"."<td>Kategori Kurang</td>"."<td>".$kategori_kurang."</td>"."</tr>";
+
+
+		echo "</tbody>";
+		echo "</table>";
+
 
 		$kategori_baik = $kategori_baik ."Baik";
 		$kategori_cukup = $kategori_cukup ."Cukup";
@@ -950,8 +1278,14 @@ class Home extends CI_Controller
 			$this->M_assesmen->update_perhitungan_dtt($where,$data, 'perhitungan_dtt');
 		}
 
+		echo '<br><hr><div class="tombol2"><b>Kategori Yang Didapatkan = '.$kategori.'</b></div><br><br>';
 
-		$this->load->view('berhasil_hitung_dtt',$data);
+		echo "<br><a class='tombol' href=".base_url('home/hitung_dtt').">KEMBALI KE HALAMAN HITUNG DTT</a><br><br>";
+
+		// $this->load->view('berhasil_hitung_dt',$data);
+
+
+		// $this->load->view('berhasil_hitung_dtt',$data);
 
 	}
 

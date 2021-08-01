@@ -277,6 +277,17 @@ class M_assesmen extends CI_Model
         return $this->db->query("SELECT rata,kategori FROM perhitungan_dt ");
     }
 
+    public function tampil_rata_penilaian_admin()
+    {
+        return $this->db->query("SELECT * FROM perhitungan_dt ");
+    }
+
+    public function tampil_rata_penilaian_dtt_admin()
+    {
+        return $this->db->query("SELECT * FROM perhitungan_dtt ");
+    }
+
+
     public function cek_dt($id_user,$bulan,$tahun)
     {
         return $this->db->query("SELECT * FROM perhitungan_dt WHERE id_user='$id_user'
